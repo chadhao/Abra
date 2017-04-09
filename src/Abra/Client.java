@@ -40,4 +40,16 @@ public class Client {
 		return this.truckData;
 	}
 	
+	public void addBill(Bill bill) {
+		this.bills.add(bill);
+	}
+	
+	public Bill getBill(int index) {
+		return this.bills.get(index);
+	}
+	
+	public ArrayList<Bill> getAllBills() {
+		return this.bills;
+	}
+	
 }

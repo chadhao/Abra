@@ -9,6 +9,7 @@ public class Bill {
 	private double weight;
 	private Channel channel;
 	private String note;
+	private boolean dianFaHuo;
 	
 	public Bill(File file) {
 		this.file = file;
@@ -16,6 +17,7 @@ public class Bill {
 		this.weight = 0;
 		this.channel = Channel.TJBJPX;
 		this.note = "";
+		this.dianFaHuo = false;
 	}
 	
 	public void setBillNumber(String number) { 
@@ -34,7 +36,11 @@ public class Bill {
 		this.note = note;
 	}
 	
-	public Boolean setFileName(String name) {
+	public void setDianFaHuo(boolean isDianFaHuo) {
+		this.dianFaHuo = isDianFaHuo;
+	}
+	
+	public boolean setFileName(String name) {
 		String newNameWithFullPath = file.getAbsolutePath() + "\\" + name + ".jpg";
 		File newFile = new File(newNameWithFullPath);
 		if (newFile.exists()) {
@@ -59,5 +65,9 @@ public class Bill {
 	
 	public String getNote() {
 		return this.note;
+	}
+	
+	public boolean isDianFaHuo() {
+		return this.dianFaHuo;
 	}
 }

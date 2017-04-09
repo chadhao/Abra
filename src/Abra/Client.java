@@ -16,4 +16,28 @@ public class Client {
 		bills = new ArrayList<>();
 	}
 	
+	public void setCode(String code) {
+		this.code = code;
+	}
+	
+	public void setDriver(Driver driver) {
+		this.driver = driver;
+	}
+	
+	public void setTruckData(boolean isTruckData) {
+		this.truckData = isTruckData;
+	}
+	
+	public String getCode() {
+		return this.code;
+	}
+	
+	public Driver getDriver() {
+		return this.driver;
+	}
+	
+	public boolean isTruckData() {
+		return this.truckData;
+	}
+	
 }

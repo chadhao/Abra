@@ -23,12 +23,12 @@ public class Flyway {
 		this.scanDir = dir;
 	}
 	
-	public void workScanDir(File dir) throws FileNotFoundException {
+	public void setWorkDir(File dir) throws FileNotFoundException {
 		checkDir(dir);
 		this.workDir = dir;
 	}
 	
-	public void packScanDir(File dir) throws FileNotFoundException {
+	public void setPackDir(File dir) throws FileNotFoundException {
 		checkDir(dir);
 		this.packDir = dir;
 	}
@@ -52,6 +52,18 @@ public class Flyway {
 	
 	public ArrayList<Client> getAllClients() {
 		return this.clients;
+	}
+	
+	public File getScanDir() {
+		return this.scanDir;
+	}
+	
+	public File getWorkDir() {
+		return this.workDir;
+	}
+	
+	public File getPackDir() {
+		return this.packDir;
 	}
 	
 }

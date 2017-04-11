@@ -25,7 +25,7 @@ public class Utils {
 		return files;
 	}
 	
-	public static double round(double value, int places) {
+	public static double round(double value, int places) throws IllegalArgumentException {
 		if (places < 0) throw new IllegalArgumentException();
 		BigDecimal bd = new BigDecimal(value);
 		bd = bd.setScale(places, RoundingMode.HALF_UP);

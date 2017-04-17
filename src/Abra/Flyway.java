@@ -3,6 +3,9 @@ package Abra;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import javax.swing.DefaultListModel;;
 
 public class Flyway {
 
@@ -11,11 +14,20 @@ public class Flyway {
 	private File packDir;
 	private ArrayList<Client> clients;
 	
+	public Flyway() {
+		this.scanDir = null;
+		this.workDir = null;
+		this.packDir = null;
+		this.clients = new ArrayList<>();
+		this.clients.add(new Client("未分类", null, false, null));
+	}
+	
 	public Flyway(File scanDir, File workDir, File packDir) {
 		this.scanDir = scanDir;
 		this.workDir = workDir;
 		this.packDir = packDir;
 		this.clients = new ArrayList<>();
+		this.clients.add(new Client("未分类", null, false, null));
 	}
 	
 	public void setScanDir(File dir) throws FileNotFoundException {
@@ -64,6 +76,19 @@ public class Flyway {
 	
 	public File getPackDir() {
 		return this.packDir;
+	}
+	
+	public DefaultListModel<String> getClientsList() {
+		DefaultListModel<String> list = new DefaultListModel<>();
+		Iterator<Client> it = clients.iterator();
+		
+		while(it.hasNext()) {
+			Client thisClient = it.next();
+			int size = thisClient.getAllBills().size();
+			list.addElement(thisClient.getCode() + "(" + size + ")");
+		}
+		
+		return list;
 	}
 	
 }

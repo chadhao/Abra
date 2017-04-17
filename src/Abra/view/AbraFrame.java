@@ -3,18 +3,20 @@ package Abra.view;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
+import Abra.Flyway;
+
 public class AbraFrame extends JFrame {
 	
 	public static final int DEFAULT_WIDTH = 1200;
 	public static final int DEFAULT_HEIGHT = 800;
 	public static final String title = "Abra快递面单处理辅助系统";
 	public static final String version = "V1.0";
-	private static ControlPanel controlPanel = new ControlPanel();
-	private static ClientPanel clientPanel = new ClientPanel();
-	private static PicPanel picPanel = new PicPanel();
-	private static ConsolePanel consolePanel = new ConsolePanel();
+	private static ControlPanel controlPanel;
+	private static ClientPanel clientPanel;
+	private static PicPanel picPanel;
+	private static ConsolePanel consolePanel;
 	
-	public AbraFrame() {
+	public AbraFrame(Flyway flyway) {
 		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		setLocationRelativeTo(null);
 		setLayout(null);
@@ -22,14 +24,19 @@ public class AbraFrame extends JFrame {
 		setResizable(false);
 		setIconImage(new ImageIcon("abra.png").getImage());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		clientPanel = new ClientPanel(flyway.getClientsList());
+		consolePanel = new ConsolePanel();
+		controlPanel = new ControlPanel();
+		picPanel = new PicPanel();
 		add(clientPanel);
-//		add(controlPanel);
-//		add(picPanel);
-//		add(consolePanel);
-		clientPanel.setBounds(5, 5, 1185, 760);
-//		controlPanel.setBounds(55, 0, 1000, 95);
-//		picPanel.setBounds(55, 155, 1000, 700);
-//		consolePanel.setBounds(1060, 0, 140, 800);
+		add(controlPanel);
+		add(picPanel);
+		add(consolePanel);
+		clientPanel.setBounds(5, 5, 100, 760);
+		controlPanel.setBounds(110, 5, 825, 175);
+		picPanel.setBounds(110, 185, 825, 580);
+		consolePanel.setBounds(940, 5, 250, 760);
 	}
 
 }

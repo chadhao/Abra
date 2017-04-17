@@ -10,7 +10,7 @@ public class Bill {
 	private Channel channel;
 	private String note;
 	private boolean dianFaHuo;
-	private BillType type;
+	private OutputType type;
 	
 	public Bill(File file) {
 		this.file = file;
@@ -19,7 +19,7 @@ public class Bill {
 		this.channel = Channel.TJBJPX;
 		this.note = "";
 		this.dianFaHuo = false;
-		this.type = BillType.BJP;
+		this.type = OutputType.BJP;
 	}
 	
 	public void setBillNumber(String number) { 
@@ -42,7 +42,7 @@ public class Bill {
 		this.dianFaHuo = isDianFaHuo;
 	}
 	
-	public void setBillType(BillType type) {
+	public void setBillType(OutputType type) {
 		this.type = type;
 	}
 	
@@ -77,7 +77,7 @@ public class Bill {
 		return this.dianFaHuo;
 	}
 	
-	public BillType getBillType() {
+	public OutputType getBillType() {
 		return this.type;
 	}
 }

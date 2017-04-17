@@ -31,6 +31,7 @@ public class Abra {
 	private static String IMG_PATH = "";
 	private static AbraFrame baseFrame;
 	private static AbraPanel basePanel;
+	public static final Flyway flyway = new Flyway();
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -45,7 +46,7 @@ public class Abra {
 						} catch (Exception exception) {}
 					}
 				}
-				baseFrame = new AbraFrame();
+				baseFrame = new AbraFrame(flyway);
 				//basePanel = new AbraPanel("abra.png");
 				//baseFrame.add(basePanel);
 				baseFrame.setVisible(true);

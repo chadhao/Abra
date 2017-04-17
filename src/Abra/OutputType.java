@@ -1,7 +1,8 @@
 package Abra;
 
-public enum BillType {
+public enum OutputType {
 	BJP("±£½¡Æ·", ""),
+	EMS("EMS", "EMS"),
 	CC("CC", "CC"),
 	AA("AA", "AA"),
 	NAI("ÄÌ·Û", "ÄÌ");
@@ -9,7 +10,7 @@ public enum BillType {
 	private String name;
 	private String packDir;
 	
-	private BillType(String name, String ackDir) {
+	private OutputType(String name, String packDir) {
 		this.name = name;
 		this.packDir = packDir;
 	}

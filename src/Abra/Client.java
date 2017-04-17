@@ -6,12 +6,14 @@ public class Client {
 	
 	private String code;
 	private Driver driver;
+	private Channel defaultChannel;
 	private ArrayList<Bill> bills;
 	private boolean truckData;
 	
-	public Client(String code, Driver driver, boolean truckData) {
+	public Client(String code, Driver driver, boolean truckData, Channel channel) {
 		this.code = code;
 		this.driver = driver;
+		this.defaultChannel = channel;
 		this.truckData = truckData;
 		bills = new ArrayList<>();
 	}
@@ -34,6 +36,10 @@ public class Client {
 	
 	public Driver getDriver() {
 		return this.driver;
+	}
+	
+	public Channel getDefaultChannel() {
+		return this.defaultChannel;
 	}
 	
 	public boolean isTruckData() {

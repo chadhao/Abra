@@ -1,4 +1,4 @@
-package Abra;
+package Abra.view;
 
 import java.awt.AlphaComposite;
 import java.awt.Dimension;
@@ -17,6 +17,8 @@ import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+
+import Abra.Abra;
 
 public class AbraPanel extends JComponent {
 	

@@ -1,4 +1,4 @@
-package Abra;
+package Abra.view;
 
 import java.awt.CardLayout;
 

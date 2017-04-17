@@ -22,6 +22,9 @@ import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.oned.MultiFormatOneDReader;
 
+import Abra.view.AbraFrame;
+import Abra.view.AbraPanel;
+
 public class Abra {
 	
 	private static String IMG_PATH = "";

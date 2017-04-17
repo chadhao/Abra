@@ -7,6 +7,7 @@ import java.awt.event.ComponentListener;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -74,6 +75,14 @@ public class ScanContainer extends JComponent {
 			}
 		});
 		
+		billTypeSelection.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
 		scan.addActionListener(new ActionListener() {
 			
 			@Override
@@ -82,13 +91,21 @@ public class ScanContainer extends JComponent {
 					if (!Abra.flyway.hasClient(clientInput.getText())) {
 						Abra.flyway.addClient(new Client(clientInput.getText(), 
 								null, false, null));
-						clientSelection.addItem(clientInput.getText().toUpperCase());
+						reloadClients();
 						clientSelection.setSelectedItem(clientInput.getText().toUpperCase());
 						ClientPanel.reloadList();
 					}
 				}
 			}
 		});
+	}
+	
+	private void reloadClients() {
+		DefaultComboBoxModel<String> listData = Abra.flyway.getClientsComboBoxModel();
+		clientSelection.removeAllItems();
+		for (int i = 0; i < listData.getSize(); i++) {
+			clientSelection.addItem(listData.getElementAt(i));
+		}
 	}
 	
 	private DefaultComboBoxModel<String> getBillTypeList() {

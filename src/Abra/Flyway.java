@@ -14,6 +14,7 @@ public class Flyway {
 	private File workDir;
 	private File packDir;
 	private ArrayList<Client> clients;
+	private Client currentClient;
 	
 	public Flyway() {
 		this.scanDir = null;
@@ -63,6 +64,19 @@ public class Flyway {
 		return this.clients.get(index);
 	}
 	
+	public Client getClient(String code) {
+		Iterator<Client> it = clients.iterator();
+		
+		while(it.hasNext()) {
+			Client client = it.next();
+			if (client.getCode().equals(code.toUpperCase())) {
+				return client;
+			}
+		}
+		
+		return null;
+	}
+	
 	public ArrayList<Client> getAllClients() {
 		return this.clients;
 	}
@@ -98,7 +112,6 @@ public class Flyway {
 		
 		while(it.hasNext()) {
 			Client thisClient = it.next();
-			int size = thisClient.getAllBills().size();
 			list.addElement(thisClient.getCode());
 		}
 		

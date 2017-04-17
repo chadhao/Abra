@@ -2,6 +2,6 @@ package Abra.view;
 
 import javax.swing.JComponent;
 
-public class BillContainer extends JComponent {
+public class SettingContainer extends JComponent {
 
 }

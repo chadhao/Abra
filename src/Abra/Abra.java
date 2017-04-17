@@ -24,6 +24,7 @@ import com.google.zxing.oned.MultiFormatOneDReader;
 
 import Abra.view.AbraFrame;
 import Abra.view.AbraPanel;
+import Abra.view.ClientPanel;
 
 public class Abra {
 	
@@ -45,8 +46,8 @@ public class Abra {
 					}
 				}
 				baseFrame = new AbraFrame();
-				basePanel = new AbraPanel("abra.png");
-				baseFrame.add(basePanel);
+				//basePanel = new AbraPanel("abra.png");
+				//baseFrame.add(basePanel);
 				baseFrame.setVisible(true);
 			}
 		});

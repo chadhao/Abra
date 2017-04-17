@@ -9,10 +9,12 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
+import Abra.Abra;
+
 public class ClientPanel extends JComponent {
 	
 	private JScrollPane jsp;
-	private JList<String> list;
+	private static JList<String> list;
 	private JLabel label;
 	
 	public ClientPanel(DefaultListModel<String> clientsList) {
@@ -24,6 +26,15 @@ public class ClientPanel extends JComponent {
 		add(jsp);
 		label.setBounds(0, 0, 100, 18);
 		jsp.setBounds(0, 20, 100, 740);
+	}
+	
+	public static void reloadList() {
+		DefaultListModel<String> listData = Abra.flyway.getClientsListModel();
+		String[] data = new String[listData.size()];
+		for (int i = 0; i < listData.size(); i++) {
+			data[i] = listData.getElementAt(i);
+		}
+		list.setListData(data);
 	}
 	
 	public Dimension getPreferredSize() {

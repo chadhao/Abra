@@ -11,7 +11,7 @@ public class Client {
 	private boolean truckData;
 	
 	public Client(String code, Driver driver, boolean truckData, Channel channel) {
-		this.code = code;
+		this.code = code.toUpperCase();
 		this.driver = driver;
 		this.defaultChannel = channel;
 		this.truckData = truckData;
@@ -19,7 +19,7 @@ public class Client {
 	}
 	
 	public void setCode(String code) {
-		this.code = code;
+		this.code = code.toUpperCase();
 	}
 	
 	public void setDriver(Driver driver) {

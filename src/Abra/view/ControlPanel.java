@@ -2,8 +2,11 @@ package Abra.view;
 
 import java.awt.Dimension;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComponent;
 import javax.swing.JTabbedPane;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class ControlPanel extends JComponent {
 	
@@ -13,8 +16,8 @@ public class ControlPanel extends JComponent {
 	private OutputContainer output;
 	private SettingContainer setting;
 	
-	public ControlPanel() {
-		scan = new ScanContainer();
+	public ControlPanel(DefaultComboBoxModel<String> list) {
+		scan = new ScanContainer(list);
 		input = new InputContainer();
 		output = new OutputContainer();
 		setting = new SettingContainer();
@@ -27,6 +30,14 @@ public class ControlPanel extends JComponent {
 		
 		add(tabs);
 		tabs.setBounds(0, 0, 825, 175);
+		
+		tabs.addChangeListener(new ChangeListener() {
+			
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				PicPanel.setDefault();
+			}
+		});
 	}
 	
 	public Dimension getPreferredSize() {

@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;;
 
 public class Flyway {
@@ -78,7 +79,7 @@ public class Flyway {
 		return this.packDir;
 	}
 	
-	public DefaultListModel<String> getClientsList() {
+	public DefaultListModel<String> getClientsListModel() {
 		DefaultListModel<String> list = new DefaultListModel<>();
 		Iterator<Client> it = clients.iterator();
 		
@@ -89,6 +90,32 @@ public class Flyway {
 		}
 		
 		return list;
+	}
+	
+	public DefaultComboBoxModel<String> getClientsComboBoxModel() {
+		DefaultComboBoxModel<String> list = new DefaultComboBoxModel<>();
+		Iterator<Client> it = clients.iterator();
+		
+		while(it.hasNext()) {
+			Client thisClient = it.next();
+			int size = thisClient.getAllBills().size();
+			list.addElement(thisClient.getCode());
+		}
+		
+		return list;
+	}
+	
+	public boolean hasClient(String code) {
+		Iterator<Client> it = clients.iterator();
+		
+		while(it.hasNext()) {
+			Client client = it.next();
+			if (client.getCode().equals(code.toUpperCase())) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 }

@@ -25,9 +25,9 @@ public class AbraFrame extends JFrame {
 		setIconImage(new ImageIcon("abra.png").getImage());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		clientPanel = new ClientPanel(flyway.getClientsList());
+		clientPanel = new ClientPanel(flyway.getClientsListModel());
 		consolePanel = new ConsolePanel();
-		controlPanel = new ControlPanel();
+		controlPanel = new ControlPanel(flyway.getClientsComboBoxModel());
 		picPanel = new PicPanel();
 		add(clientPanel);
 		add(controlPanel);

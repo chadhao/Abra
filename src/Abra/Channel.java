@@ -21,4 +21,13 @@ public enum Channel {
 	public double getDefaultWeight() {
 		return this.defaultWeight;
 	}
+	
+	public static Channel findChannelByName(String name) {
+		for(Channel channel : Channel.values()) {
+			if (channel.getName().equals(name)) {
+				return channel;
+			}
+		}
+		return null;
+	}
 }

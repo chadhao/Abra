@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.io.File;
 
 public class ImageProcess {
 	
@@ -25,5 +26,9 @@ public class ImageProcess {
 		g.dispose();
 		
 		return newImage;
+	}
+	
+	public static void moveFiles(File from, File to) {
+		
 	}
 }

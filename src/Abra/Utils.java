@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Utils {
 	
 	public static ArrayList<File> listAllFiles(String dir, ArrayList<File> files) {
@@ -30,6 +32,10 @@ public class Utils {
 		BigDecimal bd = new BigDecimal(value);
 		bd = bd.setScale(places, RoundingMode.HALF_UP);
 		return bd.doubleValue();
+	}
+	
+	public static void popMsg(String msg) {
+		JOptionPane.showMessageDialog(null, msg, "ÌבÊ¾", JOptionPane.WARNING_MESSAGE);
 	}
 	
 }

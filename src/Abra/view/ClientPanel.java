@@ -7,6 +7,7 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 
 import Abra.Abra;
@@ -26,6 +27,18 @@ public class ClientPanel extends JComponent {
 		add(jsp);
 		label.setBounds(0, 0, 100, 18);
 		jsp.setBounds(0, 20, 100, 740);
+	}
+	
+	public static void setSelected(String code) {
+		System.out.println(code);
+		ListModel<String> model = list.getModel();
+		for(int i = 0; i < model.getSize(); i++) {
+			System.out.println(model.getElementAt(i));
+			if (model.getElementAt(i).substring(0, model.getElementAt(i).indexOf("(")).equals(code)) {
+				list.setSelectedIndex(i);
+				break;
+			}
+		}
 	}
 	
 	public static void reloadList() {

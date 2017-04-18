@@ -7,7 +7,8 @@ public enum Driver {
 	CARL("CARL"),
 	TEDDY("TEDDY"),
 	NEO("NEO"),
-	LI("LI");
+	LI("LI"),
+	PING("PING");
 	
 	private String name;
 	
@@ -17,5 +18,9 @@ public enum Driver {
 	
 	public String getName() {
 		return this.name;
+	}
+	
+	public Driver getDriverByName(String name) {
+		return null;
 	}
 }

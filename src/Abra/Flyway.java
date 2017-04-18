@@ -47,6 +47,10 @@ public class Flyway {
 		this.packDir = dir;
 	}
 	
+	public void setCurrentClient(Client client) {
+		this.currentClient = client;
+	}
+	
 	private void checkDir(File dir) throws FileNotFoundException {
 		if (!dir.exists()) {
 			throw new FileNotFoundException("The passed in File does not exist!");
@@ -91,6 +95,10 @@ public class Flyway {
 	
 	public File getPackDir() {
 		return this.packDir;
+	}
+	
+	public Client getCurrentClient() {
+		return this.currentClient;
 	}
 	
 	public DefaultListModel<String> getClientsListModel() {
